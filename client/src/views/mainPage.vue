@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="mainPage container">
     <img alt="Vue logo" src="../assets/logo.png">
-    <h1>Hello World</h1>
+    <iTunes /> 
   </div>
 </template>
 
