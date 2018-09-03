@@ -4,4 +4,11 @@ let schemaName = 'Song'
 
 
 let schema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+
+
+
 })
