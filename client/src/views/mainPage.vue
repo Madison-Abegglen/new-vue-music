@@ -1,23 +1,27 @@
 <template>
   <div class="mainPage container">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <iTunes /> 
-    <activePlaylist />
+    <h1>VUE  <img alt="Vue logo" src="../assets/logo.png"> Music</h1>
+    <mySongs />
+    <iTunes />   
   </div>
 </template>
 
 <script>
 import iTunes from "@/components/iTunes";
-import activePlaylist from "@/components/activePlaylist";
+import mySongs from "@/components/mySongs";
 
 export default {
   name: "home",
   components: {
     iTunes,
-    activePlaylist
+    mySongs
   }
 };
 </script>
 
 <style>
+#mainPage {
+  display: flex;
+  flex-direction: row;
+}
 </style>

@@ -23,10 +23,6 @@ let schema = new Schema({
     preview: {
         type: String,
         required: true
-    },
-    tempId: {
-        type: Number,
-        required: true
     }
 })
 

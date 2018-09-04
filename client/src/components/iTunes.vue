@@ -1,15 +1,16 @@
 <template>
     <div class="iTunes row">
-        <form @submit.prevent="iTunes">
-          <input type="text" placeholder="Start a Search by Artist Name">
+        <h2>Search for More Tunes Here</h2>
+        <form @submit.prevent="iTunesSearch">
+          <input type="text" placeholder="Start a Search by Artist Name" v-model="search">
         </form>
-        <div v-for="song in songs" :key="song.tempId">
+        <div v-for="song in results" :key="song.tempId">
           <img :src="song.albumArt" alt="album art">
           <h2>{{song.name}}</h2>
           <h2>{{song.artistName}}</h2>
           <h2>{{song.album}}</h2>
-          <audio :src="song.preview" controls v-on="preview"></audio>
-          <button @click="addToPlaylist(song, playlist)">Add Song to Playlist</button>
+          <audio :src="song.preview" controls></audio>
+          <button @click="addToMySongs(song)">Add to My Songs</button>
         </div>
     </div>
 </template>
@@ -17,27 +18,25 @@
 <script>
 export default {
   name: "iTunes",
+  data() {
+    return {
+      search: ""
+    };
+  },
   computed: {
-    songs() {
-      return this.$store.state.songs;
+    results() {
+      return this.$store.state.results;
     },
-    playlist() {
-      return this.$store.state.playlist;
+    mySongs() {
+      return this.$store.state.mySongs;
     }
   },
   methods: {
-    iTunesSearch(event) {
-      this.$store.dispatch("iTunesSearch", this.artistName);
+    iTunesSearch() {
+      this.$store.dispatch("iTunesSearch", this.search);
     },
-    addToPlaylist(song, playlist) {
-      let songObj = {
-        song,
-        playlist
-      };
-      this.$store.dispatch("addToPlaylist", songObj);
-    },
-    preview() {
-      // how to play preview when button clicked???
+    addToMySongs(song) {
+      this.$store.dispatch("addToMySongs", song);
     }
   }
 };
