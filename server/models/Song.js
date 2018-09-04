@@ -1,5 +1,6 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
+let ObjectId = Schema.Types.ObjectId
 let schemaName = 'Song'
 
 
@@ -8,7 +9,26 @@ let schema = new Schema({
         type: String,
         required: true
     },
-
-
-
+    albumArt: {
+        type: String,
+        required: true
+    },
+    artistName: {
+        type: String,
+        required: true
+    },
+    album: {
+        type: String,
+        required: true
+    },
+    audioPreview: {
+        type: String,
+        required: true
+    },
+    tempId: {
+        type: Number,
+        required: true
+    }
 })
+
+module.exports = mongoose.model(schemaName, schema)
