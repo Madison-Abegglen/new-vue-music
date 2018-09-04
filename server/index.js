@@ -13,7 +13,7 @@ let songRoutes = require('./routes/Songs')
 
 server.use('/songs', songRoutes)
 
-server.use('/*', (error, req, res, next) => {
+server.use('/songs/*', (error, req, res, next) => {
     res.send(error)
 })
 
@@ -22,6 +22,6 @@ server.use('*', (req, res, next) => {
 })
 
 server.listen(port, () => {
-    console.log('SOUNDS......', port)
+    console.log('SOUNDS......on', port)
 })
 
