@@ -8,11 +8,11 @@ let schema = new Schema({
         type: String,
         required: true
     },
-    albumArt: {
+    artistName: {
         type: String,
         required: true
     },
-    artistName: {
+    albumArt: {
         type: String,
         required: true
     },
@@ -20,7 +20,7 @@ let schema = new Schema({
         type: String,
         required: true
     },
-    audioPreview: {
+    preview: {
         type: String,
         required: true
     },
